@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS mvc_blogs;
+CREATE DATABASE mvc_blogs;
