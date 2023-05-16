@@ -1,5 +1,5 @@
 const router = require('express').Router();
-//const {User} = require('../../models');
+const {User,Post} = require('../../models');
 
 // router.use((req, res, next) => {
 //   if(!req.session.logged_in){
@@ -21,8 +21,14 @@ router.get('/login', async (req, res) => {
     res.render('login', { loggedIn: false });
 });
 
+
+
 router.get('/signup', async (req,res) => {
     res.render("signup");
+});
+
+router.get('/newpost', async (req,res) =>{
+    res.render('newpost', { loggedIn: true });
 });
 
 

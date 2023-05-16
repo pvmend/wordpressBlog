@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Museum</title>
-  <link rel="stylesheet" type="text/css" href="/css/jass.css">
+  <title>Word Press</title>
+  {{!-- <link rel="stylesheet" type="text/css" href="/css/jass.css"> --}}
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
@@ -13,19 +13,19 @@
   {{!-- <header>
     <h1>Welcome to the Four Seasons Museum</h1>
   </header> --}}
-  {{#if loggedIn}}
   <nav>
     <a href="/">Home</a>
     <a href="/login">Login</a>
     <a href="/">Dashboard</a>
     <!-- If the user is logged in, show a logout button -->
- 
+   {{#if loggedIn}}
+
     <button id="logout" class="btn-no-style">Logout</button>
-   
+    {{/if}}
     <!-- Otherwise, show a link to login -->
-     <a href="/">Logout</a>
+   
   </nav>
-  {{/if}}
+ 
   <header>
     <h1>Tech Blog</h1>
   </header>
@@ -36,9 +36,9 @@
     </div>
   </main>
   <!-- If the user is logged in, load the JS script for when they logout -->
-  {{#if loggedIn}}
+  {{!-- {{#if loggedIn}} --}}
   <script src=""></script>
-  {{/if}}
+  {{!-- {{/if}} --}}
 </body>
 
 </html>
