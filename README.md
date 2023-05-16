@@ -24,10 +24,13 @@ THEN I am presented with the homepage, which includes existing blog posts if any
 
 WHEN I click on the homepage option
 THEN I am taken to the homepage
+
 WHEN I click on any other links in the navigation
 THEN I am prompted to either sign up or sign in
+
 WHEN I choose to sign up
 THEN I am prompted to create a username and password
+
 WHEN I click on the sign-up button
 THEN my user credentials are saved and I am logged into the site
 WHEN I revisit the site at a later time and choose to sign in
@@ -36,6 +39,7 @@ WHEN I am signed in to the site
 THEN I see navigation links for the homepage, the dashboard, and the option to log out
 WHEN I click on the homepage option in the navigation
 THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
+
 WHEN I click on an existing blog post
 THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
 WHEN I enter a comment and click on the submit button while signed in

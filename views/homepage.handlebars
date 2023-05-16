@@ -5,8 +5,14 @@
     <button id="submitBtn">submit</button>
 </form> --}}
 
+{{!-- view this post takes them to the post url where they can delete or update  --}}
+
 <ul id="userBlogPost">
     {{#each user.posts as |post|}}
-    <li>{{post.post }}</li>
+    <li>
+       <h4>{{post.title }} </h4> 
+       <p>{{post.text}}</p> 
+        </li>
+
     {{/each}}
 </ul>
