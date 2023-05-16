@@ -42,13 +42,23 @@ main {
   flex-grow: 1;
 }
 
-aside {
-  flex: 0;
-  background-color: var(--tertiary);
-  padding: 80px;
-  text-align: left;
-  color: var(--light);
+
+
+#loginPage {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 30px;
 }
+
+#signUplogo {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 30px;
+}
+/* .logininput{
+  
+  
+} */
 
 nav {
   display: flex;
@@ -96,18 +106,7 @@ img {
   height: auto;
 }
 
-.painting {
-  width: 50%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
-}
 
-.painting-details {
-  text-align: center;
-  padding: 10px 20px;
-  font-weight: bold;
-}
 
 /* CARDS */
 .card {
@@ -122,8 +121,8 @@ img {
 .login-card {
   margin: 0 0 20px 0;
   flex: 0 0 50%;
-  max-width: 50%;
-  padding: 5px;
+  max-width: 65%;
+  padding: 10px;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
   border-style: double;
@@ -148,16 +147,7 @@ img {
   font-weight: bold;
 }
 
-.gallery-name {
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-shadow: 2px 2px 5px var(--secondary);
-  border: 10px groove var(--light);
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-right: 100px;
-  padding-left: 100px;
-}
+
 
 /* LAYOUT */
 .container {
@@ -165,4 +155,14 @@ img {
   flex-flow: column wrap;
   align-content: flex-start;
   align-items: center;
+}
+
+#signupBtnOnLog{
+  display: inline;
+  margin-left: 45px;
+}
+
+#logBtnOnSign{
+  display: inline;
+  margin-left: 45px;
 }

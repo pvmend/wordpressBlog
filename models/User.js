@@ -33,6 +33,7 @@ User.init(
       allowNull: false,
       
     },
+    
   },
   {
     hooks: {

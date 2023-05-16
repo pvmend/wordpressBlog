@@ -1,1 +1,12 @@
-<h1 >HOMEPAGE</h1>
+<p>Welcome</p>
+
+{{!-- <form>
+    <input type="text" name="userpost" id="userpost">
+    <button id="submitBtn">submit</button>
+</form> --}}
+
+<ul id="userBlogPost">
+    {{#each user.posts as |post|}}
+    <li>{{post.post }}</li>
+    {{/each}}
+</ul>

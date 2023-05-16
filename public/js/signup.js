@@ -12,9 +12,14 @@ const signUpFormHandler = async (event) => {
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
+    
+    
 
     if (response.ok) {
-      document.location.replace('/login');
+        //alert("sign up successful")
+        const data = await response.json();
+        location.href = '/login';
+      //document.location.replace('/login');
     } else {
       alert('Failed to signup');
     }
