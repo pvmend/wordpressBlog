@@ -11,9 +11,41 @@ const {User,Post} = require('../../models');
 // })
 // redirect to hompage if not logged in
 
+
+router.get('/users/:userId', async (req,res)=>{
+    try{
+        const {user_id} = req.params;
+        const userData = await User.findByPk(user_id, {
+            include: [
+                {
+                    model: Post,
+                    attributes: ['id', 'title',
+                    'content', 'date_created']
+                }
+            ]
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+
+
 router.get('/', async (req,res)=>{
     console.log(req.session)
-    res.render("homepage", { loggedIn : true })
+    if(!req.session.user_id){
+          // return res.render('login', { loggedIn: false });
+            return res.redirect('/login');
+    }
+    await Post.findAll({
+        where: {user_id: req.session.user_id},raw:true}).then((postData) => {
+        console.log(postData)
+           // const posts = postData.get({plain: true});
+            console.log(postData)
+            res.render("homepage", { loggedIn : true , user :{posts:postData}})
+
+    })
 });
 
 
