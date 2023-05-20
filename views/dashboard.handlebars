@@ -1,24 +1,24 @@
-<nav>
-    <a href="/">Home</a>
-    <a href="/login">Login</a>
-    <a href="/dashboard">Dashboard</a>
-    <!-- If the user is logged in, show a logout button -->
- 
-    <button id="logout" class="btn-no-style">Logout</button>
-   
-    <!-- Otherwise, show a link to login -->
-     <a href="/">Logout</a>
-  </nav>
+
 
 
 {{!-- here would be post you have made  --}}
 
+<ul id="userBlogPost">
+    {{#each user.posts as |post|}}
+    <li>
+       <h4>{{post.title }} </h4> 
+       <p>{{post.text}}</p> 
+       <a class="btn" href="/edit/{{post.id}}">edit</a>
+        </li>
+
+    {{/each}}
+</ul>
 
 
 
 
-<div><button>
-    <a href="/newpost"></a>
-    </button>
+<button>
+<a href="/newpost">post</a>
+</button>
 
-</div>
+

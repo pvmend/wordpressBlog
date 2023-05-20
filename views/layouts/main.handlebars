@@ -15,11 +15,13 @@
   </header> --}}
   <nav>
     <a href="/">Home</a>
+    {{#unless loggedIn}}
     <a href="/login">Login</a>
-    <a href="/">Dashboard</a>
+    {{/unless}}
+    <a href="/dashboard">Dashboard</a>
     <!-- If the user is logged in, show a logout button -->
    {{#if loggedIn}}
-
+    <a href="/newpost">Post</a>
     <button id="logout" class="btn-no-style">Logout</button>
     {{/if}}
     <!-- Otherwise, show a link to login -->
@@ -40,5 +42,5 @@
   <script src=""></script>
   {{!-- {{/if}} --}}
 </body>
-
+<script src="/js/logout.js"></script>
 </html>
