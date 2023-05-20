@@ -1,17 +1,22 @@
-<p>Welcome</p>
 
-{{!-- <form>
+{{!-- 
+<form>
     <input type="text" name="userpost" id="userpost">
     <button id="submitBtn">submit</button>
 </form> --}}
 
 {{!-- view this post takes them to the post url where they can delete or update  --}}
-
+{{#if loggedIn}}
+<div>im logged in</div>
+{{/if}}
 <ul id="userBlogPost">
-    {{#each user.posts as |post|}}
+    {{#each posts as |post|}}
     <li>
-       <h4>{{post.title }} </h4> 
+       <h4>{{post.title }} {{post.showCreated}}</h4> 
        <p>{{post.text}}</p> 
+       {{#if  ../loggedIn}}
+         <a class="btn" href="/view/{{post.id}}">View post</a>
+         {{/if}}
         </li>
 
     {{/each}}
