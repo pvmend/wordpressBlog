@@ -90,16 +90,16 @@ nav a:hover {
   align-items: center;
 }
 .btn{
-  display: block;
-    width: 115px;
-    height: 25px;
-    background: #4E9CAF;
-    padding: 10px;
+  display: inline;
+    width: 75px;
+    height: 35px;
+    background: darkgray;
+    padding: 2px;
     text-align: center;
     border-radius: 5px;
     color: white;
     font-weight: bold;
-    line-height: 25px;
+    line-height: 5px;
 }
 .btn-no-style {
   background: none;
