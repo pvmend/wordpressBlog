@@ -13,7 +13,7 @@ const { DateTime } = require('luxon');
 // })
 // redirect to hompage if not logged in
 
-
+// get user post
 router.get('/users/:userId', withAuth, async (req,res)=>{
     try{
         const {user_id} = req.params;
@@ -32,7 +32,7 @@ router.get('/users/:userId', withAuth, async (req,res)=>{
 });
 
 
-
+// get all posts
 
 router.get('/', async (req,res)=>{
    // console.log(req.session)
@@ -47,19 +47,19 @@ router.get('/', async (req,res)=>{
                 return post 
             })
             // console.log(postData) // array
-            res.render("homepage", { loggedIn : true , posts:postData})
+            res.render("homepage", { loggedIn : req.session.logged_in , posts:postData})
 
     })
     
 });
 
-
+// render login page
 router.get('/login', async (req, res) => {
     res.render('login', { loggedIn: false });
 });
 
 
-
+// render signup page
 router.get('/signup', async (req,res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
@@ -68,11 +68,12 @@ router.get('/signup', async (req,res) => {
     res.render("signup");
 });
 
-
+// render new post page
 router.get('/newpost', withAuth, async (req,res) =>{
     res.render('newpost', { loggedIn: true });
 });
 
+// render edit post page
 router.get('/edit/:id',withAuth, async(req,res) => {
     await Post.findByPk(req.params.id,{raw:true})
     .then(postData => {
@@ -85,73 +86,40 @@ router.get('/edit/:id',withAuth, async(req,res) => {
     })
    
 })
+// view a single post
 router.get('/view/:id', withAuth, async (req,res) => {
     await Post.findByPk(req.params.id,{
        // raw:true,
         include: [{
             model: Comment,
-
+            include: [{
+                model: User,
+            }],
         }]
+
 
     })
     .then( async postData => {
         postData = postData.get({plain:true})
-        console.log(postData);
+       // console.log(postData);
        
         res.render('view',{ loggedIn : true, post:postData });
+
     })
 });
-
+// user dashnoard
 router.get('/dashboard', withAuth, async (req, res) => {
      await Post.findAll({
         where: {user_id: req.session.user_id},raw:true})
         .then((postData) => {
-        console.log(postData)
+        //console.log(postData)
            // const posts = postData.get({plain: true});
-            console.log(postData)
+           // console.log(postData)
             res.render("dashboard", { loggedIn : true , user :{posts:postData}})
 
     });
 });
-// /users
-// /users  - render all the users
-// /todos - renders all the todos
-// router.get('/users', async (req, res) => {
-//   try {
-//     const usersData = await User.findAll();
-//     const users = usersData.map(user => user.get({plain: true}));
 
-//     res.render('users', {
-//       sentence: 'This is a sentence',
-//       users,
-//       visitCount: req.session.visitCount || 0,
-//       loggedInUser: req.session.user || null,
-//     });
-
-
-//   } catch (error) {
-//     res.status(500).json({error});
-//   }
-// });
-
-
-// router.get('/users/:userId', async (req, res) => {
-//   try {
-//     const {userId} = req.params;
-//     const userData = await User.findByPk(userId);
-//     const user = userData.get({plain: true});
-//     const settings = {
-//       isCool: true,
-//       isHungry: false,
-//     };
-//     res.render('user_profile', {
-//       user,
-//       settings,
-//     });
-//   } catch (error) {
-//     res.status(500).json({error});
-//   }
-// });
 
 
 module.exports = router;

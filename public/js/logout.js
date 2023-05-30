@@ -1,3 +1,4 @@
+// logout js
 const logout = async () => {
   console.log('hi')
   const response = await fetch('/api/user/logout', {
