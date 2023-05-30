@@ -29,5 +29,8 @@ deletePost.addEventListener('click', async (event)=>{
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
     });
+    if(response.ok){
+        document.location.replace('/');
+  }
 
 })

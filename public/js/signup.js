@@ -1,4 +1,5 @@
-console.log('here');
+//console.log('here');
+// sign up form handler
 const signUpBtn = document.querySelector("#signUpBtn");
 const signUpFormHandler = async (event) => {
   event.preventDefault();

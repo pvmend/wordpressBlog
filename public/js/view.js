@@ -1,3 +1,5 @@
+// viewing a post and commenting on it
+
 const commentBtn = document.getElementById('commentBtn');
 
 commentBtn.addEventListener('click', async (event)=>{

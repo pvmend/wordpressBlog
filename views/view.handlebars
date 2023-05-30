@@ -1,12 +1,19 @@
+{{!-- comments --}}
 <div>
+    
     <h2> {{post.title}} {{post.showCreated}}</h2>
     <p>{{post.text}}</p>
-    
+  
     <label for="comment">Comment</label>
     <textarea name="comment" id="comment" cols="30" rows="10">
     </textarea>
     <button id="commentBtn">submit
     </button>
-
+  {{#each post.comments as |comment| }}
+    <div>
+        <h4>{{comment.user.email}}</h4>
+        <p>{{comment.text}}</p>
+    </div>
+    {{/each}}
 </div>
 <script src="/js/view.js"></script>

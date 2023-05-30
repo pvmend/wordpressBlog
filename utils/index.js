@@ -1,3 +1,4 @@
+// luxon helper for date formatting
 const { DateTime } = require('luxon');
 module.exports = {
     format_date: (date) => {
