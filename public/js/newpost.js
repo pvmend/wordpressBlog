@@ -14,7 +14,7 @@ blogSubmit.addEventListener('submit', async (event)=>{
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({title, text}),
   });
-  console.log(response);
+  //console.log(response);
   if(response.ok){
         document.location.replace('/');
   }

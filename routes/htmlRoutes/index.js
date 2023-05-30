@@ -101,7 +101,7 @@ router.get('/view/:id', withAuth, async (req,res) => {
     })
     .then( async postData => {
         postData = postData.get({plain:true})
-        console.log(postData);
+       // console.log(postData);
        
         res.render('view',{ loggedIn : true, post:postData });
 
